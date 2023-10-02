@@ -3,6 +3,8 @@
 #include <string.h>
 #define size 32
 
+void cabeca();
+
 typedef struct contato{
     char *nome;
     char *tel;
@@ -130,7 +132,10 @@ void listarContatos(agendaDeContatos Hash){
 }
 
 void mostrarMenu(){
-    printf("\nMenu:\n");
+    printf("\n   //////////////////// \n");
+    printf("\n  ///     Menu     /// \n");
+    printf("\n //////////////////// \n");
+    
     printf("1. Inserir Contato\n");
     printf("2. Buscar Contato\n");
     printf("3. Remover Contato\n");
@@ -140,6 +145,7 @@ void mostrarMenu(){
 }
 
 int main(){
+    cabeca();
     agendaDeContatos Hash;
     iniciarAgenda(Hash);
 
@@ -152,6 +158,8 @@ int main(){
 		Contato *novoContato = (Contato *) malloc(sizeof(Contato));
         switch (opcao){
             case 1:
+            	system("cls");
+ 	 	        printf("           _+_+_+_    LISTA TELEFONICA    _+_+_+_                 \n");
                 if(novoContato != NULL){
                     novoContato->nome = (char *)malloc(50); 
                     novoContato->tel = (char *)malloc(50);
@@ -173,9 +181,11 @@ int main(){
 
                     if(resultado != -1){
                         printf("Contato inserido.\n");
+                        system("cls");
                     } 
 					else{
                         printf("Nao foi possivel inserir o contato.\n");
+                        system("cls");
                     }
     			} 
 				else{
@@ -184,6 +194,9 @@ int main(){
                 break;
 
             case 2:
+            	system("cls");
+ 	 	        printf("           _+_+_+_    LISTA TELEFONICA    _+_+_+_                 \n");
+ 	 	        
                 printf("Digite o nome do contato a ser buscado: ");
                 scanf("%s", nomeBusca);
 
@@ -200,6 +213,8 @@ int main(){
                 break;
 
             case 3:
+            	system("cls");
+ 	 	        printf("           _+_+_+_    LISTA TELEFONICA    _+_+_+_                 \n");
                 printf("Digite o nome do contato a ser removido: ");
                 scanf("%s", nomeBusca);
                 if(removerContato(Hash, nomeBusca)){
@@ -211,6 +226,8 @@ int main(){
                 break;
 
             case 4:
+            	system("cls");
+ 	 	        printf("           _+_+_+_    LISTA TELEFONICA    _+_+_+_                 \n");
                 listarContatos(Hash);
                 break;
             case 5:
@@ -234,6 +251,20 @@ int main(){
             free(temp);
         }
     }
-
 return (0);
+}
+
+// zoas
+
+void cabeca(){
+	system("color 02");
+	printf("        Universidade Federal Rural do Semi-arido (UFERSA)         \n");
+	printf("            Bacharelado em Tecnologia da Informacao               \n");
+	printf("            Professor: KENNEDY REURISON LOPES                     \n");
+    printf("           _+_+_+_    LISTA TELEFONICA    _+_+_+_                 \n");
+	printf("             Discente: ROBERTO FERNANDES ROCHA                    \n");
+	printf("             Discente: HILDI DANTE OLIVEIRA DE QUEIROZ            \n");
+    printf("             Discente: RENATO ALVES PESSOA DE MEDEIROS            \n");
+    system("pause");
+    system("cls");
 }
